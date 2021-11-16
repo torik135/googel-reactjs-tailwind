@@ -1,7 +1,7 @@
 // V6 react-router
 // Switch = Routes
 
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 // components
 import { Results } from './Results'
@@ -26,10 +26,12 @@ export const CompRoutes = () => {
                 localhost:port/ressearchults/videos
                 */}
 
-                <Route path="search" element={<Search />} />
+                {/* <Route path="/" render={() => <Navigate replace="/" to="search" />} /> */}
 
+                {/* <Route path="/" element={<Search />} render={() => <Navigate replace to="search" />}> */}
+                <Route path="/" element={<Navigate replace to="search" />} />
                 <Route path="search" element={<Search />}>
-                    <Route path="results" element={<Results />} />
+                    <Route path="search" element={<Results />} />
                     <Route path="images" element={<Results />} />
                     <Route path="news" element={<Results />} />
                     <Route path="videos" element={<Results />} />
