@@ -29,7 +29,7 @@ export const CompRoutes = () => {
 
                 {/* <Route path="/" element={<Search />} render={() => <Navigate replace to="search" />}> */}
                 <Route path="/" element={<Navigate replace to="search" />} />
-                <Route path="search" element={<Results />}>
+                <Route path="/" element={<Results />}>
                     <Route path="search" element={<Results />} />
                     <Route path="images" element={<Results />} />
                     <Route path="news" element={<Results />} />

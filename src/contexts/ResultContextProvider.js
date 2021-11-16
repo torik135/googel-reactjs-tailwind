@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from "react"
 
 const ResultContext = createContext()
-const baseUrl = '' // endpoint
+const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1' // endpoint
 
 // children mean everything inside ResultContentProvider
-export const ResultContextProvider = async ({ children }) => {
+export const ResultContextProvider = ({ children }) => {
     const [results, setResults] = useState([]) // return json
     const [isLoading, setIsLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
@@ -22,12 +22,15 @@ export const ResultContextProvider = async ({ children }) => {
             method: 'GET',
             headers: {
                 'x-user-agent': 'desktop',
+                'x-proxy-location': 'US',
                 'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-                'x-rapidapi-key': ''
+                'x-rapidapi-key': 'e69bdede99mshf1c0eb84a0f2852p103342jsnedbb7a45f4ce'
             }
         })
 
         const data = await response.json()
+
+        console.log(data)
 
 
         setResults(data)
