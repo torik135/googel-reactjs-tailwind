@@ -5,7 +5,6 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 
 // components
 import { Results } from './Results'
-import { Search } from './Search'
 
 export const CompRoutes = () => {
 
@@ -30,7 +29,7 @@ export const CompRoutes = () => {
 
                 {/* <Route path="/" element={<Search />} render={() => <Navigate replace to="search" />}> */}
                 <Route path="/" element={<Navigate replace to="search" />} />
-                <Route path="search" element={<Search />}>
+                <Route path="search" element={<Results />}>
                     <Route path="search" element={<Results />} />
                     <Route path="images" element={<Results />} />
                     <Route path="news" element={<Results />} />
