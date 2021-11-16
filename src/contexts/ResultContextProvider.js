@@ -7,7 +7,7 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1' // endpoint
 export const ResultContextProvider = ({ children }) => {
     const [results, setResults] = useState([]) // return json
     const [isLoading, setIsLoading] = useState(false)
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('javascript')
 
     // async because it takes time to get the data
     // type =  of the results (videos or images or text)
@@ -32,8 +32,15 @@ export const ResultContextProvider = ({ children }) => {
 
         console.log(data)
 
+        if (type.includes('/news')) {
+            setResults(data.entries)
+        } else if (type.includes('/images')) {
+            setResults(data.images_results)
+        } else {
+            setResults(data.results)
+        }
 
-        setResults(data)
+
         // the data has been set and the loading is false
         setIsLoading(false)
 
