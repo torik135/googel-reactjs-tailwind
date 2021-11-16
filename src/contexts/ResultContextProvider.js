@@ -24,9 +24,11 @@ export const ResultContextProvider = ({ children }) => {
                 'x-user-agent': 'desktop',
                 'x-proxy-location': 'US',
                 'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-                'x-rapidapi-key': 'e69bdede99mshf1c0eb84a0f2852p103342jsnedbb7a45f4ce'
+                'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY,
             }
         })
+
+        console.log(process.env.RAPID_API_KEY)
 
         const data = await response.json()
 

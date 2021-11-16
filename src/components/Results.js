@@ -17,7 +17,7 @@ export const Results = () => {
     useEffect(() => {
         if (searchTerm) {
             if (location.pathname === '/videos') {
-                getResults(`/search/q=${searchTerm} videos`)
+                getResults(`/search/q=${searchTerm}&num=5 videos`)
             } else {
                 getResults(`${location.pathname}/q=${searchTerm}&num=5`)
             }
@@ -82,7 +82,8 @@ export const Results = () => {
                 <div className="flex flex-wrap">
                     {results?.map((video, index) => (
                         <div key={index} className="p-2">
-                            <ReactPlayer url={video.additional_links?.[0].href} controls width="355px" height="200px" />
+                            {/* render only if video is exist */}
+                            {video?.additional_links?.[0]?.href && <ReactPlayer url={video.additional_links?.[0].href} controls width="355px" height="200px" />}
                         </div>
                     ))}
                 </div>
