@@ -1,6 +1,6 @@
 # React Googel Search and TailwindCSS
 
-## impoementation of:
+## implementation of:
 - react components
 - useState()
 - useEffect()
